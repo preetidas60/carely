@@ -1,12 +1,12 @@
-import illustration from "../assets/illustration.png";
+import illustration from "../../../assets/images/illustration.png";
 import "./Hero.css";
-import "./button.css"
+import "../../../components/ui/button.css";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
     <section className="hero relative px-8 py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-
         {/* LEFT CONTENT */}
         <div className="translate-y-[-100px] translate-x-100">
           <h1 className="text-[70px] leading-tight text-textMain">
@@ -14,13 +14,12 @@ export default function Hero() {
           </h1>
 
           <p className="mt-8 max-w-md text-[22px] leading-[1.8] text-textMuted textSubtle">
-  Empowering ADHD students with simple routines and smart reminders
-  for a focused, calmer daily life.
-</p>
-
+            Empowering ADHD students with simple routines and smart reminders
+            for a focused, calmer daily life.
+          </p>
 
           <button className="primary-button mt-12 mb-4 bg-primary text-white px-10 py-3 rounded-full shadow-sm hover:opacity-90 transition">
-            Get Started
+            <Link to="/dashboard"> Get Started</Link>
           </button>
 
           <p className="mt-8 max-w-md text-[20px] leading-[1.8] text-textMuted textSubtle">
@@ -42,7 +41,6 @@ export default function Hero() {
             "
           />
         </div>
-
       </div>
     </section>
   );

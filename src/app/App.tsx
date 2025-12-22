@@ -1,11 +1,11 @@
 import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-
-import Home from "./pages/Home";
-import FeaturesPage from "./pages/FeaturesPage";
-import AboutPage from "./pages/AboutPage";
-import FAQPage from "./pages/FAQPage";
+import Navbar from "../components/layout/Navbar";
+import Footer from "../components/layout/Footer";
+import Dashboard from "../pages/Dashboard/dashboard";
+import Home from "../pages/Home/Home";
+import FeaturesPage from "../pages/Features/Features";
+import AboutPage from "../pages/About/About";
+import FAQPage from "../pages/FAQ/FAQ";
 
 function App() {
   return (
@@ -17,8 +17,8 @@ function App() {
         <Route path="/features" element={<FeaturesPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/faq" element={<FAQPage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
-
       <Footer />
     </div>
   );
