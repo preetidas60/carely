@@ -1,11 +1,11 @@
-import illustration from "../../../assets/images/illustration.png";
+import Assets from "../../../assets";
 import "./Hero.css";
 import "../../../components/ui/button.css";
 import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
-    <section className="hero relative px-8 py-24 overflow-hidden">
+    <section className="hero relative py-14 overflow-hidden">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
         {/* LEFT CONTENT */}
         <div className="translate-y-[-100px] translate-x-100">
@@ -31,7 +31,7 @@ export default function Hero() {
         {/* RIGHT ILLUSTRATION */}
         <div className="relative flex justify-end">
           <img
-            src={illustration}
+            src={Assets.images_illustration}
             alt="ADHD focus illustration"
             className="
               w-[650px]
