@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "../components/layout/Navbar";
-import Footer from "../components/layout/Footer";
 import Dashboard from "../pages/Dashboard/dashboard";
 import Home from "../pages/Home/Home";
 import FeaturesPage from "../pages/Features/Features";
@@ -19,7 +18,6 @@ function App() {
         <Route path="/faq" element={<FAQPage />} />
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
-      <Footer />
     </div>
   );
 }

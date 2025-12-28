@@ -17,11 +17,26 @@ export default function Testimonial() {
           </div>
         </div>
 
-        <div className="mt-8 flex items-center gap-3 bg-white rounded-full p-2 shadow-sm">
+        <div className="mt-8 flex items-center gap-3 bg-white rounded-full p-2 shadow-[0_8px_30px_rgba(0,0,0,0.06)] focus-within:shadow-md transition
+">
           <input
+            type="email"
             placeholder="Enter your email"
-            className="flex-1 px-4 py-2 outline-none text-sm"
-          />
+            className="
+              flex-1
+              px-6
+              py-3
+              text-[15px]
+              font-friendly
+              font-normal
+              bg-transparent
+              text-[#2a1313]
+              placeholder:text-[#9A9A9A]
+              placeholder:font-normal
+              placeholder:tracking-wide
+              outline-none
+            "
+                    />
           <button className="bg-primary text-white px-6 py-2 rounded-full">
             Sign Up
           </button>

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
-    <section className="hero relative py-14 overflow-hidden">
+    <section className="hero relative py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
         {/* LEFT CONTENT */}
         <div className="translate-y-[-100px] translate-x-100">
