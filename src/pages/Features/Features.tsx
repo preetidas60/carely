@@ -1,6 +1,8 @@
 import Assets from "../../assets";
 import "../../pages/Home/sections/Hero.css";
 import "./Features.css"
+import FeatureCard from "../../components/layout/FeatureCards";
+
 
 export default function FeaturesPage() {
   return (
@@ -26,7 +28,7 @@ export default function FeaturesPage() {
             <img
               src={Assets.images_featuresHero}
               alt="ADHD focus illustration"
-              className="featuresHero max-w-none absolute top-10 right-40"
+              className="featuresHero w-[1080px] h-auto absolute top-20 right-40"
             />
           </div>
 
@@ -138,49 +140,6 @@ export default function FeaturesPage() {
   );
 }
 
-/* -------------------------------- */
-/* Feature Card Component */
-/* -------------------------------- */
 
-interface FeatureCardProps {
-  icon: string;
-  title: string;
-  description: string;
-  bg: string;
-}
-
-function FeatureCard({ icon, title, description, bg }: FeatureCardProps) {
-  return (
-    <div
-      className={`
-        ${bg}
-        rounded-[28px]
-        px-6
-        py-4
-        flex
-        items-center
-        gap-6
-        shadow-[0_8px_24px_rgba(0,0,0,0.04)]
-        h-[180px]
-      `}
-    >
-      {/* Icon */}
-      <div className="w-20 h-20 flex-shrink-0 rounded-full bg-white flex items-center justify-center shadow-sm">
-        <span className="text-[20px]">{icon}</span>
-      </div>
-
-      {/* Text (LEFT ALIGNED) */}
-      <div className="flex-1 text-left">
-        <h3 className="text-[22px] font-medium text-[#2E2E2E] mb-1">
-          {title}
-        </h3>
-
-        <p className="text-[16px] leading-[1.5] text-[#7A7A7A] max-w-[300px]">
-          {description}
-        </p>
-      </div>
-    </div>
-  );
-}
 
 
