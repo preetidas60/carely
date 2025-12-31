@@ -1,7 +1,8 @@
 import Assets from "../../assets";
 import "../../pages/Home/sections/Hero.css";
 import "./../Features/Features.css";
-import FeatureCard from "../../components/layout/FeatureCards";;
+import FeatureCard from "../../components/layout/FeatureCards";
+import { Link } from "react-router-dom";
 
 
 export default function About() {
@@ -28,7 +29,7 @@ export default function About() {
             <img
               src={Assets.images_aboutUsHero}
               alt="ADHD focus illustration"
-              className="featuresHero w-[1200px] h-auto absolute top-10 right-40"
+              className="featuresHero w-[1400px] h-auto absolute -top-10 right-40"
             />
           </div>
 
@@ -120,8 +121,8 @@ export default function About() {
             creating a calmer, more focused life.
           </p>
 
-          <button className="bg-[#8FB39B] hover:bg-[#7DAA8A] text-white px-10 py-4 rounded-full text-[16px] transition">
-            Get Started
+          <button className="primary-button mt-12 mb-4 bg-primary text-white px-10 py-3 rounded-full shadow-sm hover:opacity-90 transition">
+            <Link to="/dashboard"> Get Started</Link>
           </button>
         </div>
 
@@ -157,29 +158,6 @@ function ValueCard({
     <div className={`${bg} rounded-3xl p-8 text-center shadow-sm`}>
       <div className="text-3xl mb-4">{icon}</div>
       <h3 className="text-[18px] font-medium mb-3">{title}</h3>
-      <p className="text-[15px] text-[#6F6F6F] leading-relaxed">
-        {description}
-      </p>
-    </div>
-  );
-}
-
-
-interface ReasonCardProps {
-  icon: string;
-  title: string;
-  description: string;
-}
-
-function ReasonCard({
-  icon,
-  title,
-  description,
-}: ReasonCardProps) {
-  return (
-    <div className="bg-white rounded-3xl p-10 shadow-sm text-left">
-      <div className="text-3xl mb-6">{icon}</div>
-      <h3 className="text-[18px] font-medium mb-4">{title}</h3>
       <p className="text-[15px] text-[#6F6F6F] leading-relaxed">
         {description}
       </p>
