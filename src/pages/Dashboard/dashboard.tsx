@@ -17,7 +17,10 @@ export default function Dashboard() {
       {/* SIDEBAR */}
       <aside className="w-72 bg-white px-6 py-6 flex flex-col justify-between shadow-sm">
         <div>
-          <h1 className="text-xl font-semibold mb-10">🏡 Carely</h1>
+          <div className="flex items-center text-xl gap-x-4 font-semibold mb-10">
+            <img className="w-7" src={Assets.icons_home} alt="home" />
+            Carely
+          </div>
 
           <nav className="space-y-2">
             <SidebarItem icon={<LayoutGrid size={18} />} label="Overview" />
