@@ -1,51 +1,20 @@
-import Assets from "../../assets";
-import "../../pages/Home/sections/Hero.css";
-import "./../Features/Features.css";
-import FeatureCard from "../../components/layout/FeatureCards";
+import Assets from "../../../../assets";
+import "../Hero.css";
+import "../Features/Features";
+import FeatureCard from "../../../../components/layout/FeatureCards";
 import { Link } from "react-router-dom";
-
 
 export default function About() {
   return (
     <main className="hero text-[#2A2A2A]">
-
-      {/* HERO SECTION */}
-      <section className="relative min-h-screen overflow-hidden pt-40">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 px-8 ">
-
-          {/* LEFT CONTENT */}
-          <div className=" flex flex-col z-10">
-            <h1 className="text-[70px] leading-tight text-textMain">
-              About Us
-            </h1>
-
-            <p className="mt-6 max-w-md text-[22px] leading-relaxed text-textMuted">
-              Helping ADHD students thrive with care and understanding.
-            </p>
-          </div>
-
-          {/* RIGHT IMAGE */}
-          <div className="">
-            <img
-              src={Assets.images_aboutUsHero}
-              alt="ADHD focus illustration"
-              className="featuresHero w-[1400px] h-auto absolute -top-10 right-40"
-            />
-          </div>
-
-        </div>
-      </section>
-
       {/* OUR MISSION */}
       <section className="max-w-5xl mx-auto text-center px-10 pb-20">
-        <h2 className="text-[32px] font-medium mb-6">
-          Our Mission
-        </h2>
+        <h2 className="text-[32px] font-medium mb-6">Our Mission</h2>
 
         <p className="text-[18px] text-[#6F6F6F] leading-relaxed">
           At Carely, we are dedicated to empowering students with ADHD by
-          providing tools that make it easier to manage tasks, routines,
-          and focus with confidence.
+          providing tools that make it easier to manage tasks, routines, and
+          focus with confidence.
         </p>
       </section>
 
@@ -81,9 +50,7 @@ export default function About() {
 
       {/* WHY CHOOSE */}
       <section className="max-w-6xl mx-auto px-10 pb-28 text-center">
-        <h2 className="text-[34px] font-medium mb-14">
-          Why Choose Carely?
-        </h2>
+        <h2 className="text-[34px] font-medium mb-14">Why Choose Carely?</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <FeatureCard
@@ -106,40 +73,9 @@ export default function About() {
           />
         </div>
       </section>
-
-      {/* JOIN US */}
-      <section className="max-w-7xl mx-auto px-10 pb-32 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-        
-        {/* LEFT */}
-        <div>
-          <h2 className="text-[36px] font-medium mb-6">
-            Join Us on Our Journey
-          </h2>
-
-          <p className="text-[18px] text-[#6F6F6F] leading-relaxed max-w-md mb-10">
-            We're here to support ADHD students, parents, and educators in
-            creating a calmer, more focused life.
-          </p>
-
-          <button className="primary-button mt-12 mb-4 bg-primary text-white px-10 py-3 rounded-full shadow-sm hover:opacity-90 transition">
-            <Link to="/dashboard"> Get Started</Link>
-          </button>
-        </div>
-
-        {/* RIGHT ILLUSTRATION */}
-        <div>
-          <img
-            src={Assets.images_aboutUsFooter}
-            alt="Student working illustration"
-            className="w-[1180px] mx-auto"
-          />
-        </div>
-      </section>
-
     </main>
   );
 }
-
 
 interface ValueCardProps {
   icon: string;
@@ -148,12 +84,7 @@ interface ValueCardProps {
   bg: string;
 }
 
-function ValueCard({
-  icon,
-  title,
-  description,
-  bg,
-}: ValueCardProps) {
+function ValueCard({ icon, title, description, bg }: ValueCardProps) {
   return (
     <div className={`${bg} rounded-3xl p-8 text-center shadow-sm`}>
       <div className="text-3xl mb-4">{icon}</div>

@@ -2,9 +2,9 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "../components/layout/Navbar";
 import Dashboard from "../pages/Dashboard/dashboard";
 import Home from "../pages/Home/Home";
-import FeaturesPage from "../pages/Features/Features";
-import AboutPage from "../pages/About/About";
-import FAQPage from "../pages/FAQ/FAQ";
+import FeaturesPage from "../pages/Home/sections/Features/Features";
+import AboutPage from "../pages/Home/sections/About/About";
+import FAQPage from "../pages/Home/sections/FAQ/FAQ";
 
 function App() {
   const location = useLocation();

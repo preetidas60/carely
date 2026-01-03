@@ -1,54 +1,21 @@
-import Assets from "../../assets";
-import "../../pages/Home/sections/Hero.css";
-import "./Features.css"
-import FeatureCard from "../../components/layout/FeatureCards";
-
+import Assets from "../../../../assets";
+import "../Hero.css";
+import "./Features.css";
+import FeatureCard from "../../../../components/layout/FeatureCards";
 
 export default function FeaturesPage() {
   return (
     <main className="hero">
-      {/* HERO SECTION */}
-      <section className="relative min-h-screen overflow-hidden pt-40">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 px-8 ">
-
-          {/* LEFT CONTENT */}
-          <div className=" flex flex-col z-10">
-            <h1 className="text-[70px] leading-tight text-textMain">
-              Features
-            </h1>
-
-            <p className="mt-6 max-w-md text-[22px] leading-relaxed text-textMuted">
-              Empowering ADHD students, parents, and teachers with tools designed
-              for focus, calm, and consistency.
-            </p>
-          </div>
-
-          {/* RIGHT IMAGE */}
-          <div className="">
-            <img
-              src={Assets.images_featuresHero}
-              alt="ADHD focus illustration"
-              className="featuresHero w-[1080px] h-auto absolute top-20 right-40"
-            />
-          </div>
-
-        </div>
-      </section>
-
-
-
       {/* FEATURES GRID */}
       {/* FEATURES SECTION */}
       <section className="hero relative px-8">
         <div className="max-w-7xl mx-auto text-center">
-
           <h2 className="text-[35px] pb-16 leading-tight text-textMuted">
             Empowering Focus and Calm for the ADHD Community
           </h2>
 
           {/* WHITE CONTAINER START */}
           <div className="relative bg-white rounded-t-3xl pt-7 pb-56 overflow-visible">
-
             {/* FEATURES GRID */}
             <div className="px-6 sm:px-10 lg:px-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-7 items-stretch">
               <FeatureCard
@@ -114,12 +81,8 @@ export default function FeaturesPage() {
                 bg="bg-[#EAF2EC]"
               />
             </div>
-
-
-
           </div>
           {/* WHITE CONTAINER END */}
-
         </div>
         {/* FOOTER ILLUSTRATION — INSIDE WHITE BG */}
         <img
@@ -133,13 +96,7 @@ export default function FeaturesPage() {
                 z-10
               "
         />
-
       </section>
-
     </main>
   );
 }
-
-
-
-

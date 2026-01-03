@@ -1,20 +1,16 @@
 import Hero from "./sections/Hero";
-import Features from "./sections/Features";
-import Testimonial from "./sections/Testimonial";
-import Footer from "../../components/layout/Footer";
 import "./sections/Hero.css";
+import FeaturesPage from "./sections/Features/Features";
+import About from "./sections/About/About";
+import FAQ from "./sections/FAQ/FAQ";
 
 export default function Home() {
   return (
     <>
-    <Hero />
-    <div className="hero px-72">
-      <div className="bg-white rounded-t-3xl">
-      <Features />
-      <Testimonial />
-      <Footer />
-      </div>
-    </div>
+      <Hero />
+      <FeaturesPage />
+      <About />
+      <FAQ />
     </>
   );
 }
