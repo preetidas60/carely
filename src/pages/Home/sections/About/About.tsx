@@ -16,7 +16,6 @@ export default function About() {
         <hr className="flex-1 border-[#131313]" />
       </div>
 
-      {/* OUR MISSION */}
       <section className="max-w-5xl mx-auto text-center px-10 mb-10">
         <p className="text-xl text-[#6F6F6F] leading-relaxed">
           At Carely, we are dedicated to empowering students with ADHD by
