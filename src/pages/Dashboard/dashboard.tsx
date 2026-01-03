@@ -12,10 +12,10 @@ import Assets from "../../assets";
 
 export default function Dashboard() {
   return (
-    <div className="flex h-screen bg-[#F6F7F4] font-sans text-[#2A2A2A]">
+    <div className="flex h-screen bg-white font-sans text-[#2A2A2A]">
       
       {/* SIDEBAR */}
-      <aside className="w-72 bg-white px-6 py-6 flex flex-col justify-between shadow-sm">
+      <aside className="w-72 bg-[#F6F7F4] px-6 py-6 flex flex-col justify-between shadow-sm">
         <div>
           <div className="flex items-center text-xl gap-x-4 font-semibold mb-10">
             <img className="w-7" src={Assets.icons_home} alt="home" />
@@ -62,7 +62,7 @@ export default function Dashboard() {
         <div className="flex items-center justify-between mb-8">
           <input
             placeholder="Search here..."
-            className="w-96 px-5 py-3 rounded-full bg-white shadow-sm outline-none"
+            className="w-[700px] px-5 py-2 rounded-full bg-transparent shadow-sm outline-none border border-gray-200 focus:border-gray-300 transition"
           />
 
           <div className="flex items-center gap-6">
@@ -77,32 +77,91 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* GREETING CARD */}
-        <div className="bg-gradient-to-r from-[#F0F5EE] to-[#FAF9F6] rounded-3xl p-6 flex justify-between items-center shadow-sm mb-8">
-          <div>
-            <h2 className="text-xl font-semibold mb-4">
-              Good afternoon, Thalia 👋
-            </h2>
+        {/* TOP ROW */}
+<div className="grid grid-cols-[2.2fr_1fr] gap-6 mb-8">
 
-            <div className="flex items-center gap-4 bg-[#E4F0E8] rounded-2xl px-5 py-4">
-              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                💊
-              </div>
-              <div>
-                <p className="text-sm font-medium">Daily meds</p>
-                <p className="text-xs text-gray-500">2 × 10mg</p>
-              </div>
-              <span className="ml-6 text-sm text-green-700 font-medium">
-                24 mins
-              </span>
-            </div>
+  {/* GREETING CARD */}
+  <div className="bg-gradient-to-r from-[#F0F5EE] to-[#FAF9F6] rounded-3xl p-2 flex justify-between items-center shadow-sm">
+    <div>
+      <h2 className="text-xl font-semibold mb-4 px-2">
+        Good afternoon, Thalia 👋
+      </h2>
+
+      <div className="bg-[#E4F0E8] rounded-2xl px-5 py-4 w-[360px]">
+        <p className="text-sm text-[#5E6F63] mb-2">
+          You should take your meds in
+          <span className="float-right font-medium text-[#4A6B57]">
+            24 mins
+          </span>
+        </p>
+
+        <div className="flex items-center gap-4 bg-[#D6EADB] rounded-xl p-3">
+          <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+            💊
+          </div>
+          <div>
+            <p className="text-sm font-medium">Daily meds</p>
+            <p className="text-xs text-gray-500">2 × 10mg</p>
           </div>
 
-          <img
-            src= {Assets.images_dashboardHero}
-            className="w-48"
+          <input
+            type="checkbox"
+            className="ml-auto w-5 h-5 accent-[#7FAE94]"
           />
         </div>
+      </div>
+    </div>
+
+    <img
+      src={Assets.images_dashboardHero}
+      className="w-[300px]"
+      alt="dashboard hero"
+    />
+  </div>
+
+  {/* DAILY QUEST */}
+<div className="bg-[#FBFBFA] rounded-2xl p-4 shadow-sm w-full">
+  {/* Header */}
+  <div className="flex justify-between items-center mb-3">
+    <h3 className="text-sm font-medium text-[#2A2A2A]">
+      Daily Quest
+    </h3>
+    <span className="text-gray-400 text-lg leading-none">⋮</span>
+  </div>
+
+  {/* Items */}
+  <div className="space-y-6">
+    {/* Item 1 */}
+    <div className="flex items-center gap-3">
+      <div className="w-5 h-5 rounded-md bg-[#9EC7B0] flex items-center justify-center text-white text-xs">
+        ✓
+      </div>
+      <p className="text-sm flex-1">Morning Routine</p>
+      <span className="text-sm text-gray-400">5/5</span>
+    </div>
+
+    {/* Item 2 */}
+    <div className="flex items-center gap-3">
+      <div className="w-5 h-5 rounded-md bg-[#8EC5F5] flex items-center justify-center text-white text-xs">
+        ✓
+      </div>
+      <p className="text-sm flex-1">Short Focus Session</p>
+      <span className="text-sm text-gray-400">0/1</span>
+    </div>
+  </div>
+
+  {/* Divider */}
+  <div className="my-3 h-px bg-[#E8E8E8]" />
+
+  {/* Footer */}
+  <div className="flex items-center gap-2 text-sm text-gray-400">
+    <span className="rotate-[-20deg]">🔗</span>
+    <span>Completed</span>
+  </div>
+</div>
+
+</div>
+
 
         {/* GRID */}
         <div className="grid grid-cols-3 gap-6">
@@ -123,39 +182,109 @@ export default function Dashboard() {
             </Section>
 
             <Section title="Continue Routine">
-              <div className="grid grid-cols-3 gap-4">
-                <SmallCard title="Tasks" subtitle="12 tasks total" />
-                <SmallCard title="Notes" subtitle="23 unassigned" />
-                <SmallCard title="Focus Tracker" subtitle="07 sessions" />
-              </div>
-            </Section>
+  <div className="grid grid-cols-3 gap-5">
+    <SmallCard
+      title="Tasks"
+      subtitle="12 tasks total"
+      icon="📘"
+      variant="blue"
+      action="Continue"
+    />
+    <SmallCard
+      title="Notes"
+      subtitle="23 unassigned"
+      icon="✏️"
+      variant="yellow"
+      action="Continue"
+    />
+    <SmallCard
+      title="Focus Tracker"
+      subtitle="07 focus sessions"
+      icon="🌱"
+      variant="green"
+      action="View Report"
+    />
+  </div>
+</Section>
+
           </div>
 
           {/* RIGHT COLUMN */}
-          <div className="space-y-6">
-            <Card>
-              <h3 className="font-medium mb-4">Daily Quest</h3>
-              <ChecklistItem label="Morning Routine" done />
-              <ChecklistItem label="Short Focus Session" />
-            </Card>
+<div className="space-y-6">
 
-            <Card>
-              <h3 className="font-medium mb-2">Upcoming event</h3>
-              <p className="text-sm text-gray-500">May 2 · 2:00 AM</p>
-              <p className="font-medium mt-1">Therapy Session</p>
-            </Card>
+  {/* UPCOMING EVENT */}
+  <div className="bg-[#FBFBFA] rounded-3xl p-4 shadow-sm">
+    {/* Header */}
+    <div className="flex justify-between items-center mb-3">
+      <h3 className="text-sm font-medium text-[#2A2A2A]">
+        Upcoming event
+      </h3>
+      <span className="text-gray-400 text-lg leading-none">⋮</span>
+    </div>
 
-            <Card>
-              <h3 className="font-medium mb-3">Reminder Tips</h3>
-              <ul className="text-sm text-gray-500 space-y-2">
-                <li>✔ Set reminders for meds</li>
-                <li>✔ Break tasks into steps</li>
-              </ul>
-              <button className="mt-4 w-full bg-[#A9CBB7] text-white rounded-full py-2">
-                See all tips
-              </button>
-            </Card>
-          </div>
+    {/* Event Card */}
+    <div className="bg-white rounded-2xl px-4 py-3 flex items-center gap-3 border border-[#EFEFEF]">
+      {/* Calendar Icon */}
+      <div className="w-8 h-8 rounded-lg bg-[#FFE9C7] flex items-center justify-center">
+        📅
+      </div>
+
+      <div className="flex-1">
+        <p className="text-sm font-medium text-[#2A2A2A]">
+          May 2
+          <span className="text-xs text-gray-400 font-normal">
+            {" "}· 2:00 AM
+          </span>
+        </p>
+        <p className="text-sm text-gray-500">
+          Therapy Session
+        </p>
+      </div>
+
+      {/* City Icon Placeholder */}
+      <div className="w-10 h-6 bg-[#CDE3D3] rounded-md" />
+    </div>
+  </div>
+
+  {/* REMINDER TIPS */}
+  <div className="rounded-3xl p-5 shadow-sm
+    bg-gradient-to-b from-[#F4F7F2] to-[#E6F0E7] relative overflow-hidden">
+
+    {/* Header */}
+    <div className="flex justify-between items-center mb-4">
+      <h3 className="text-sm font-medium text-[#2A2A2A]">
+        Reminder Tips
+      </h3>
+      <span className="text-gray-400 text-lg leading-none">⋮</span>
+    </div>
+
+    {/* Tips */}
+    <ul className="space-y-3 text-sm text-[#5F6F66]">
+      <li className="flex gap-2">
+        <span className="text-[#7FAE94]">✔</span>
+        <span>
+          Set reminders for your meds to build a consistent habit
+        </span>
+      </li>
+      <li className="flex gap-2">
+        <span className="text-[#7FAE94]">✔</span>
+        <span>
+          Break down tasks into manageable steps to reduce overwhelm
+        </span>
+      </li>
+    </ul>
+
+    {/* CTA */}
+    <button className="mt-5 w-full bg-[#8FB69E] text-white rounded-full py-2 text-sm font-medium">
+      See all tips
+    </button>
+
+    {/* Decorative Leaves (subtle) */}
+    <div className="absolute bottom-0 right-0 w-28 h-28 opacity-20 bg-[radial-gradient(circle_at_bottom_right,#9EC7B0,transparent_70%)]" />
+  </div>
+
+</div>
+
         </div>
       </main>
     </div>
@@ -195,7 +324,7 @@ function Section({ title, children }: any) {
 
 function RoutineCard({ title, meta, icon }: any) {
   return (
-    <div className="bg-white rounded-2xl p-4 flex justify-between items-center shadow-sm">
+    <div className="bg-[#ecf8f1] rounded-2xl p-4 flex justify-between items-center shadow-sm">
       <div className="flex items-center gap-4">
         <div className="w-10 h-10 rounded-xl bg-[#F2F5F1] flex items-center justify-center">
           {icon}
@@ -210,29 +339,57 @@ function RoutineCard({ title, meta, icon }: any) {
   );
 }
 
-function SmallCard({ title, subtitle }: any) {
+function SmallCard({
+  title,
+  subtitle,
+  icon,
+  variant = "blue",
+  action = "Continue",
+}: {
+  title: string;
+  subtitle: string;
+  icon: string;
+  variant?: "blue" | "yellow" | "green";
+  action?: string;
+}) {
+  const variants = {
+    blue: "bg-[#F1F6FC]",
+    yellow: "bg-[#FFF6E5]",
+    green: "bg-[#EEF6EF]",
+  };
+
+  const buttonVariants = {
+    blue: "bg-[#AFC6DD] text-white",
+    yellow: "bg-[#E7D6A3] text-white",
+    green: "bg-[#9EC7B0] text-white",
+  };
+
   return (
-    <div className="bg-white rounded-2xl p-4 shadow-sm">
-      <p className="font-medium">{title}</p>
-      <p className="text-xs text-gray-400">{subtitle}</p>
-      <button className="mt-3 text-sm text-green-700">Continue →</button>
+    <div
+      className={`${variants[variant]} rounded-2xl px-6 py-5 flex flex-col gap-3`}
+    >
+      {/* Icon */}
+      <div className="w-10 h-10 rounded-full bg-white/70 flex items-center justify-center text-lg">
+        {icon}
+      </div>
+
+      {/* Text */}
+      <div>
+        <p className="text-sm font-medium text-[#2A2A2A]">
+          {title}
+        </p>
+        <p className="text-xs text-[#7A7A7A] mt-1">
+          {subtitle}
+        </p>
+      </div>
+
+      {/* CTA */}
+      <button
+        className={`mt-2 w-fit px-4 py-1.5 rounded-full text-xs font-medium ${buttonVariants[variant]}`}
+      >
+        {action} →
+      </button>
     </div>
   );
 }
 
-function Card({ children }: any) {
-  return (
-    <div className="bg-white rounded-2xl p-5 shadow-sm">{children}</div>
-  );
-}
-
-function ChecklistItem({ label, done }: any) {
-  return (
-    <div className="flex items-center gap-3 text-sm mb-2">
-      <input type="checkbox" checked={done} readOnly />
-      <span className={done ? "line-through text-gray-400" : ""}>
-        {label}
-      </span>
-    </div>
-  );
-}
