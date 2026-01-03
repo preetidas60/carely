@@ -9,7 +9,12 @@ export interface FeatureCardProps {
   bg: string;
 }
 
-export default function FeatureCard({ icon, title, description, bg }: FeatureCardProps) {
+export default function FeatureCard({
+  icon,
+  title,
+  description,
+  bg,
+}: FeatureCardProps) {
   return (
     <div
       className={`
@@ -26,16 +31,14 @@ export default function FeatureCard({ icon, title, description, bg }: FeatureCar
     >
       {/* Icon */}
       <div className="w-20 h-20 flex-shrink-0 rounded-full bg-white flex items-center justify-center shadow-sm">
-        <span className="text-[20px]">{icon}</span>
+        <span className="text-[28px]">{icon}</span>
       </div>
 
       {/* Text (LEFT ALIGNED) */}
       <div className="flex-1 text-left">
-        <h3 className="text-[22px] font-medium text-[#2E2E2E] mb-1">
-          {title}
-        </h3>
+        <h3 className="text-xl font-medium text-[#2E2E2E] mb-1">{title}</h3>
 
-        <p className="text-[16px] leading-[1.5] text-[#7A7A7A] max-w-[300px]">
+        <p className="text-[14px] leading-[1.5] text-[#7A7A7A] max-w-[300px]">
           {description}
         </p>
       </div>

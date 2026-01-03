@@ -1,17 +1,24 @@
-import Assets from "../../../../assets";
 import "../Hero.css";
 import "../Features/Features";
 import FeatureCard from "../../../../components/layout/FeatureCards";
-import { Link } from "react-router-dom";
 
 export default function About() {
   return (
-    <main className="hero text-[#2A2A2A]">
-      {/* OUR MISSION */}
-      <section className="max-w-5xl mx-auto text-center px-10 pb-20">
-        <h2 className="text-[32px] font-medium mb-6">Our Mission</h2>
+    <main className="hero relative z-10 w-full min-h-screen py-24 flex flex-col items-center gap-y-8">
+      <div
+        className="flex items-center justify-center gap-5 w-[90%] md:w-4/5"
+        style={{ opacity: 1, transform: "none" }}
+      >
+        <hr className="flex-1 border-[#131313]" />
+        <div className="font-octo-bold flex-1 text-center text-3xl sm:text-4xl md:text-5xl ">
+          About Us
+        </div>
+        <hr className="flex-1 border-[#131313]" />
+      </div>
 
-        <p className="text-[18px] text-[#6F6F6F] leading-relaxed">
+      {/* OUR MISSION */}
+      <section className="max-w-5xl mx-auto text-center px-10 mb-10">
+        <p className="text-xl text-[#6F6F6F] leading-relaxed">
           At Carely, we are dedicated to empowering students with ADHD by
           providing tools that make it easier to manage tasks, routines, and
           focus with confidence.
@@ -19,8 +26,8 @@ export default function About() {
       </section>
 
       {/* VALUES */}
-      <section className="max-w-7xl mx-auto px-10 pb-24">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <section className="w-[90%] max-w-7xl flex flex-col items-center gap-8">
+        <div className="w-full flex flex-col md:flex-row gap-8 justify-center items-stretch mb-14">
           <ValueCard
             icon="💛"
             title="Empathy"
@@ -49,8 +56,8 @@ export default function About() {
       </section>
 
       {/* WHY CHOOSE */}
-      <section className="max-w-6xl mx-auto px-10 pb-28 text-center">
-        <h2 className="text-[34px] font-medium mb-14">Why Choose Carely?</h2>
+      <section className="flex flex-col gap-8 justify-center items-center">
+        <h2 className="text-[30px] font-medium">Why Choose Carely?</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <FeatureCard
@@ -86,9 +93,11 @@ interface ValueCardProps {
 
 function ValueCard({ icon, title, description, bg }: ValueCardProps) {
   return (
-    <div className={`${bg} rounded-3xl p-8 text-center shadow-sm`}>
-      <div className="text-3xl mb-4">{icon}</div>
-      <h3 className="text-[18px] font-medium mb-3">{title}</h3>
+    <div
+      className={`${bg} w-full aspect-square rounded-2xl p-3  flex flex-col items-center justify-center relative overflow-hidden text-center`}
+    >
+      <div className="text-xl mb-4">{icon}</div>
+      <h3 className="text-xl  font-medium mb-3">{title}</h3>
       <p className="text-[15px] text-[#6F6F6F] leading-relaxed">
         {description}
       </p>
