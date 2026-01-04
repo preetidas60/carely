@@ -1,12 +1,30 @@
 import Assets from "../../../../assets";
-import "../Hero.css";
+import ".././Hero/Hero.css";
 
 export default function FAQ() {
   return (
-    <main className=" flex items-center justify-center flex-col hero min-h-screen">
-      <h1 className="text-[35px] pb-16 leading-tight text-textMuted">FAQ</h1>
+    <main className="hero relative z-10 w-full min-h-screen py-24 flex flex-col items-center justify-stretch gap-y-10">
+      <div
+        className="flex items-center justify-center gap-5 w-[90%] md:w-4/5"
+        style={{ opacity: 1, transform: "none" }}
+      >
+        <hr className="flex-1 border-[#131313]" />
+        <div className="font-octo-bold flex-1 text-center text-3xl sm:text-4xl md:text-5xl ">
+          FAQ
+        </div>
+        <hr className="flex-1 border-[#131313]" />
+      </div>
+
+      <section className="max-w-5xl mx-auto text-center px-10">
+        <p className="text-xl text-[#6F6F6F] leading-relaxed">
+          Learn more about Carely through answers to common questions, helping
+          you understand how it works, what to expect, and how it supports you
+          with clarity, trust, and peace of mind.
+        </p>
+      </section>
+
       {/* FAQ GRID */}
-      <section className="mt-20 px-8">
+      <section className="px-8 flex items-center justify-center">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
           {[
             "What is Carely?",
@@ -20,7 +38,14 @@ export default function FAQ() {
           ].map((question, i) => (
             <div
               key={i}
-              className="bg-white rounded-full px-6 py-5 flex items-center justify-between shadow-sm"
+              className="bg-white rounded-[32px]
+              p-5
+              flex
+              justify-between
+              items-center
+              gap-x-8
+              shadow-[0_8px_24px_rgba(0,0,0,0.04)]
+              "
             >
               <p className="text-[15px] text-[#2A2A2A]">{question}</p>
 
@@ -33,7 +58,7 @@ export default function FAQ() {
       </section>
 
       {/* STILL HAVE QUESTIONS */}
-      <section className="mt-28 px-8">
+      <section className=" px-8">
         <div className="max-w-6xl mx-auto bg-[#F1F5F1] rounded-[32px] px-14 py-16 grid md:grid-cols-2 gap-20 items-center">
           {/* LEFT */}
           <div>
@@ -65,9 +90,6 @@ export default function FAQ() {
           </div>
         </div>
       </section>
-
-      {/* FOOTER SPACE */}
-      <div className="h-32" />
     </main>
   );
 }

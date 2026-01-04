@@ -1,4 +1,4 @@
-import "../Hero.css";
+import ".././Hero/Hero.css";
 import "../Features/Features";
 import FeatureCard from "../../../../components/layout/FeatureCards";
 

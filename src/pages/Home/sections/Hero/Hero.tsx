@@ -1,6 +1,6 @@
-import Assets from "../../../assets";
-import "./Hero.css";
-import "../../../components/ui/button.css";
+import Assets from "../../../../assets";
+import "./../Hero/Hero.css";
+import "../../../../components/ui/button.css";
 import { Link } from "react-router-dom";
 
 export default function Hero() {
