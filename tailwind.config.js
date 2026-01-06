@@ -1,5 +1,7 @@
 // tailwind.config.js
 /** @type {import('tailwindcss').Config} */
+import { colors} from "./src/styles/theme/colors";
+
 const config = {
   darkMode: 'class',
   content: [
@@ -8,12 +10,7 @@ const config = {
   theme: {
   extend: {
     colors: {
-      primary: "#7BAE8A",
-      bgSoft: "#F9F7F3",
-      textMain: "#2E2E2E",
-      textMuted: "#7A7A7A",
-      cardSoft: "#F2F6F0",
-      textSubtle: '#6B7280'
+      colors,
     },
     fontFamily: {
       sans: ['Poppins', 'sans-serif'],

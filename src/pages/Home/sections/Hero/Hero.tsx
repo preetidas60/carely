@@ -18,7 +18,7 @@ export default function Hero() {
             for a focused, calmer daily life.
           </p>
 
-          <button className="primary-button mt-12 mb-4 bg-primary text-white px-10 py-3 rounded-full shadow-sm hover:opacity-90 transition">
+          <button className="primary-button mt-12 mb-4 bg-colors-primary text-white px-10 py-3 rounded-full shadow-sm hover:opacity-90 transition">
             <Link to="/dashboard"> Get Started</Link>
           </button>
 

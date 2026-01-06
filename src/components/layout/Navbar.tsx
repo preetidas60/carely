@@ -82,7 +82,7 @@ export default function Navbar() {
 
             <button
               onClick={auth.openSignup}
-              className="bg-primary text-white px-6 py-2 rounded-full"
+              className="bg-colors-primary text-white px-6 py-2 rounded-full"
             >
               Sign up
             </button>

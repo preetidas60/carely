@@ -49,7 +49,7 @@ export default function FAQ() {
             >
               <p className="text-[15px] text-[#2A2A2A]">{question}</p>
 
-              <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-white text-sm">
+              <div className="w-6 h-6 rounded-full bg-colors-primary flex items-center justify-center text-white text-sm">
                 +
               </div>
             </div>
@@ -63,7 +63,7 @@ export default function FAQ() {
           {/* LEFT */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white">
+              <div className="w-10 h-10 rounded-full bg-colors-primary flex items-center justify-center text-white">
                 💬
               </div>
               <h3 className="text-[26px] font-semibold text-[#2A2A2A]">
@@ -75,7 +75,7 @@ export default function FAQ() {
               Contact our friendly support team, we’ll be happy to help!
             </p>
 
-            <button className="mt-8 bg-primary text-white px-10 py-3 rounded-full font-medium">
+            <button className="mt-8 bg-colors-primary text-white px-10 py-3 rounded-full font-medium">
               Contact Us
             </button>
           </div>
