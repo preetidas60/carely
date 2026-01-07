@@ -107,7 +107,7 @@ export default function SignUpForm({ onSwitch }: { onSwitch: () => void }) {
         <button
           className="
             w-full mt-4
-            bg-colors-primary text-white
+            bg-primary text-white
             py-3 rounded-xl
             text-sm font-medium
             shadow-sm

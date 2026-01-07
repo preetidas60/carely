@@ -75,7 +75,7 @@ export default function LoginForm({ onSwitch }: { onSwitch: () => void }) {
         <button
           className="
             w-full mt-2
-            bg-colors-primary text-white
+            bg-primary text-white
             py-3 rounded-xl
             text-sm font-medium
             shadow-sm

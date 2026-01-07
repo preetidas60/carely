@@ -8,7 +8,7 @@ export default function Testimonial() {
         </p>
 
         <div className="mt-6 flex items-center justify-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-colors-primary flex items-center justify-center text-white">
+          <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white">
             👩
           </div>
           <div className="text-sm">
@@ -37,7 +37,7 @@ export default function Testimonial() {
               outline-none
             "
                     />
-          <button className="bg-colors-primary text-white px-6 py-2 rounded-full">
+          <button className="bg-primary text-white px-6 py-2 rounded-full">
             Sign Up
           </button>
         </div>

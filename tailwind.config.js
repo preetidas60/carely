@@ -1,21 +1,24 @@
-// tailwind.config.js
 /** @type {import('tailwindcss').Config} */
-import { colors} from "./src/styles/theme/colors";
+import { colors, typography } from "./src/styles/theme";
 
 const config = {
-  darkMode: 'class',
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-  ],
+  darkMode: "class",
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-  extend: {
-    colors: {
-      colors,
+    extend: {
+      colors: {
+        ...colors,
+      },
+      fontFamily: {
+        ...typography.fontFamily,
+      },
+      fontSize: {
+        ...typography.fontSize,
+      },
+      fontWeight: {
+        ...typography.fontWeight,
+      },
     },
-    fontFamily: {
-      sans: ['Poppins', 'sans-serif'],
-    },
-  },
   },
   plugins: [],
 };
