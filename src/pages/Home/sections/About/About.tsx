@@ -1,6 +1,20 @@
 import ".././Hero/Hero.css";
 import "../Features/Features";
 import FeatureCard from "../../../../components/layout/FeatureCards";
+import { aboutUs } from "../../../../utils/String";
+
+const valueCardBg = [
+  "bg-[#FFF4EC]",
+  "bg-[#EEF6F0]",
+  "bg-[#FFF7E6]",
+  "bg-[#F0F7F6]",
+];
+
+const featureCard = [
+  "bg-[#EEF1F7]",
+  "bg-[#F7EFE3]",
+  "bg-[#EAF2EC]",
+]
 
 export default function About() {
   return (
@@ -18,65 +32,38 @@ export default function About() {
 
       <section className="max-w-5xl mx-auto text-center px-10 mb-10">
         <p className="text-xl text-[#6F6F6F] leading-relaxed">
-          At Carely, we are dedicated to empowering students with ADHD by
-          providing tools that make it easier to manage tasks, routines, and
-          focus with confidence.
+          {aboutUs.subtitle}
         </p>
       </section>
 
       {/* VALUES */}
       <section className="w-[90%] max-w-7xl flex flex-col items-center gap-8">
         <div className="w-full flex flex-col md:flex-row gap-8 justify-center items-stretch mb-14">
-          <ValueCard
-            icon="💛"
-            title="Empathy"
-            description="We understand the challenges of ADHD and design with compassion."
-            bg="bg-[#FFF4EC]"
-          />
-          <ValueCard
-            icon="✔️"
-            title="Simplicity"
-            description="We create simple, easy-to-use tools that reduce overwhelm."
-            bg="bg-[#EEF6F0]"
-          />
-          <ValueCard
-            icon="💡"
-            title="Guidance"
-            description="We provide supportive guidance to help students stay on track."
-            bg="bg-[#FFF7E6]"
-          />
-          <ValueCard
-            icon="⭐"
-            title="Positivity"
-            description="We celebrate progress and encourage positivity every step."
-            bg="bg-[#F0F7F6]"
-          />
+          {aboutUs.values.map((value, index) => (
+            <ValueCard
+              key={value.title}
+              icon={value.icon}
+              title={value.title}
+              description={value.description}
+              bg={valueCardBg[index]}
+            />
+          ))}
         </div>
       </section>
 
       {/* WHY CHOOSE */}
       <section className="flex flex-col gap-8 justify-center items-center">
-        <h2 className="text-[30px] font-medium">Why Choose Carely?</h2>
+        <h2 className="text-[30px] font-medium">{aboutUs.whyCarelyTitle}</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          <FeatureCard
-            icon="💡"
-            title="Evidence-Based"
-            description="Our tools are rooted in the latest ADHD research and best practices."
-            bg="bg-[#EEF1F7]"
-          />
-          <FeatureCard
-            icon="🧠"
-            title="ADHD-Friendly"
-            description="Designed with ADHD students in mind, prioritizing clarity and calm."
-            bg="bg-[#F7EFE3]"
-          />
-          <FeatureCard
-            icon="🔒"
-            title="Safe & Secure"
-            description="Privacy and data security are top priorities for all users."
-            bg="bg-[#EAF2EC]"
-          />
+          {aboutUs.whyCarelyCards.map((value, index) => (
+            <FeatureCard
+              icon={value.icon}
+              title={value.title}
+              description={value.description}
+              bg={featureCard[index]}
+            />
+          ))}
         </div>
       </section>
     </main>
