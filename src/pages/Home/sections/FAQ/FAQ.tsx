@@ -11,7 +11,7 @@ export default function FAQ() {
       >
         <hr className="flex-1 border-[#131313]" />
         <div className="font-octo-bold flex-1 text-center text-3xl sm:text-4xl md:text-5xl ">
-          FAQ
+          {faq.title}
         </div>
         <hr className="flex-1 border-[#131313]" />
       </div>
@@ -25,16 +25,7 @@ export default function FAQ() {
       {/* FAQ GRID */}
       <section className="px-8 flex items-center justify-center">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
-          {[
-            "What is Carely?",
-            "Is Carely safe and secure?",
-            "Can parents and teachers use Carely too?",
-            "What devices can I use Carely on?",
-            "How does Carely help ADHD students?",
-            "How do I set up reminders and routines?",
-            "Do you offer customer support?",
-            "Is there a cost to using Carely?",
-          ].map((question, i) => (
+          {faq.questions.map((item, i) => (
             <div
               key={i}
               className="bg-white rounded-[32px]
@@ -46,7 +37,7 @@ export default function FAQ() {
               shadow-[0_8px_24px_rgba(0,0,0,0.04)]
               "
             >
-              <p className="text-[15px] text-[#2A2A2A]">{question}</p>
+              <p className="text-[15px] text-[#2A2A2A]">{item.question}</p>
 
               <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-white text-sm">
                 +
@@ -66,16 +57,16 @@ export default function FAQ() {
                 💬
               </div>
               <h3 className="text-[26px] font-semibold text-[#2A2A2A]">
-                Still have questions?
+                {faq.contactSection.title}
               </h3>
             </div>
 
             <p className="text-[#7A7A7A] max-w-md leading-relaxed">
-              Contact our friendly support team, we’ll be happy to help!
+              {faq.contactSection.description}
             </p>
 
             <button className="mt-8 bg-primary text-white px-10 py-3 rounded-full font-medium">
-              Contact Us
+              {faq.contactSection.buttonText}
             </button>
           </div>
 
