@@ -7,6 +7,10 @@ import AuthModal from "../../pages/auth/AuthModal";
 import LoginForm from "../../pages/auth/LoginForm";
 import SignUpForm from "../../pages/auth/SignUpForm";
 
+/* =========================================
+   Helpers
+========================================= */
+
 function scrollToSection(id: string) {
   const el = document.getElementById(id);
   if (!el) return;
@@ -16,6 +20,21 @@ function scrollToSection(id: string) {
     block: "start",
   });
 }
+
+/* =========================================
+   Navigation Config (Dynamic)
+========================================= */
+
+const NAV_ITEMS = [
+  { label: "Home", id: "home" },
+  { label: "Features", id: "features" },
+  { label: "About Us", id: "about" },
+  { label: "FAQ", id: "faq" },
+] as const;
+
+/* =========================================
+   Navbar
+========================================= */
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -42,7 +61,7 @@ export default function Navbar() {
     <>
       {/* NAVBAR */}
       <header
-        className="sticky top-0 z-50 px-16 py-6
+        className="sticky top-0 z-50 px-6 md:px-16 py-4 md:py-6
         bg-white/70 backdrop-blur-xl
         border-b border-white/30"
       >
@@ -60,18 +79,18 @@ export default function Navbar() {
             Carely
           </Link>
 
-          {/* Navigation */}
-          <nav className="hidden text-sm md:flex gap-8">
-            <NavItem label="Home" onClick={() => handleNavClick("home")} />
-            <NavItem
-              label="Features"
-              onClick={() => handleNavClick("features")}
-            />
-            <NavItem label="About Us" onClick={() => handleNavClick("about")} />
-            <NavItem label="FAQ" onClick={() => handleNavClick("faq")} />
+          {/* Navigation (hidden on small screens) */}
+          <nav className="hidden md:flex gap-8 text-sm">
+            {NAV_ITEMS.map((item) => (
+              <NavItem
+                key={item.id}
+                label={item.label}
+                onClick={() => handleNavClick(item.id)}
+              />
+            ))}
           </nav>
 
-          {/* Actions */}
+          {/* Actions (unchanged) */}
           <div className="flex gap-5 items-center">
             <button
               onClick={auth.openLogin}
@@ -92,28 +111,23 @@ export default function Navbar() {
 
       {/* AUTH MODAL */}
       <AuthModal open={!!auth.mode} onClose={auth.close}>
-        {auth.mode === "login" && (
-          <LoginForm onSwitch={auth.openSignup} />
-        )}
-        {auth.mode === "signup" && (
-          <SignUpForm onSwitch={auth.openLogin} />
-        )}
+        {auth.mode === "login" && <LoginForm onSwitch={auth.openSignup} />}
+        {auth.mode === "signup" && <SignUpForm onSwitch={auth.openLogin} />}
       </AuthModal>
     </>
   );
 }
 
-function NavItem({
-  label,
-  onClick,
-}: {
-  label: string;
-  onClick: () => void;
-}) {
+/* =========================================
+   Nav Item
+========================================= */
+
+function NavItem({ label, onClick }: { label: string; onClick: () => void }) {
   return (
     <button
       onClick={onClick}
-      className="relative text-sm text-textMuted opacity-60 hover:opacity-100 hover:text-textMain transition-all duration-300"
+      className="relative text-sm text-textMuted opacity-60
+      hover:opacity-100 hover:text-textMain transition-all duration-300"
     >
       {label}
     </button>
