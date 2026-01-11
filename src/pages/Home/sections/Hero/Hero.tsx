@@ -2,6 +2,8 @@ import Assets from "../../../../assets";
 import "./../Hero/Hero.css";
 import "../../../../components/ui/button.css";
 import { Link } from "react-router-dom";
+import { hero } from "../../../../utils/String";
+
 
 export default function Hero() {
   return (
@@ -10,21 +12,19 @@ export default function Hero() {
         {/* LEFT CONTENT */}
         <div className="translate-y-[-100px] translate-x-100">
           <h1 className="text-[70px] leading-tight text-textMain">
-            Better Focus for <br /> ADHD Students
+            {hero.title.line1} <br /> {hero.title.line2}
           </h1>
 
           <p className="mt-8 max-w-md text-[22px] leading-[1.8] text-textMuted textSubtle">
-            Empowering ADHD students with simple routines and smart reminders
-            for a focused, calmer daily life.
+            {hero.subtitle}
           </p>
 
           <button className="primary-button mt-12 mb-4 bg-primary text-white px-10 py-3 rounded-full shadow-sm hover:opacity-90 transition">
-            <Link to="/dashboard"> Get Started</Link>
+            <Link to="/dashboard"> {hero.primaryCta}</Link>
           </button>
 
           <p className="mt-8 max-w-md text-[20px] leading-[1.8] text-textMuted textSubtle">
-            Get organized with our ADHD-friendly tools for managing tasks,
-            routines, and medication.
+            {hero.followUp}
           </p>
         </div>
 

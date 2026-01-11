@@ -1,6 +1,20 @@
 import ".././Hero/Hero.css";
 import "./Features.css";
 import FeatureCard from "../../../../components/layout/FeatureCards";
+import { features } from "../../../../utils/String";
+
+
+const featureCard = [
+  "bg-[#EAF2EC]",
+  "bg-[#F7EFE3]",
+  "bg-[#EEF1F7]",
+  "bg-[#EEF1F7]",
+  "bg-[#EAF2EC]",
+  "bg-[#F7EFE3]",
+  "bg-[#F7EFE3]",
+  "bg-[#EEF1F7]",
+  "bg-[#EAF2EC]",
+]
 
 export default function FeaturesPage() {
   return (
@@ -11,16 +25,14 @@ export default function FeaturesPage() {
       >
         <hr className="flex-1 border-[#131313]" />
         <div className="font-octo-bold flex-1 text-center text-3xl sm:text-4xl md:text-5xl ">
-          Features
+          {features.title}
         </div>
         <hr className="flex-1 border-[#131313]" />
       </div>
 
       <section className="max-w-5xl mx-auto text-center px-10 mb-10">
         <p className="text-xl text-[#6F6F6F] leading-relaxed">
-          Empowering focus and calm for the ADHD community by creating
-          supportive tools that reduce overwhelm, build clarity, and help
-          individuals navigate daily challenges with confidence and balance
+          {features.subtitle}
         </p>
       </section>
 
@@ -28,70 +40,17 @@ export default function FeaturesPage() {
       <div className="bg-white rounded-3xl overflow-visible">
         {/* FEATURES GRID */}
         <div className="p-10  grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
-          <FeatureCard
-            icon="🎯"
-            title="Focus Sessions"
-            description="Guided timers to improve concentration in short, manageable sessions."
-            bg="bg-[#EAF2EC]"
-          />
-
-          <FeatureCard
-            icon="📈"
-            title="Progress Tracking"
-            description="Monitor focus levels, task completion, and overall progress over time."
-            bg="bg-[#F7EFE3]"
-          />
-
-          <FeatureCard
-            icon="🔔"
-            title="Smart Reminders"
-            description="Gentle reminders for meds, tasks, and routines."
-            bg="bg-[#EEF1F7]"
-          />
-
-          <FeatureCard
-            icon="👨‍👩‍👧"
-            title="Parent Dashboard"
-            description="Stay connected with your child’s progress and receive helpful insights."
-            bg="bg-[#EAF2EC]"
-          />
-
-          <FeatureCard
-            icon="🏫"
-            title="Teacher Portal"
-            description="Tools to support students’ focus and organization in the classroom."
-            bg="bg-[#EEF1F7]"
-          />
-
-          <FeatureCard
-            icon="📘"
-            title="ADHD-Friendly Lessons"
-            description="Interactive, bite-sized lessons designed for ADHD learners."
-            bg="bg-[#F7EFE3]"
-          />
-
-          <FeatureCard
-            icon="😴"
-            title="Calming Breaks"
-            description="Relaxing activities to reset and recharge during study breaks"
-            bg="bg-[#F7EFE3]"
-          />
-
-          <FeatureCard
-            icon="📘"
-            title="ADHD-Friendly Lessons"
-            description="Interactive, bite-sized lessons designed for ADHD learners."
-            bg="bg-[#EEF1F7]"
-          />
-
-          <FeatureCard
-            icon="📘"
-            title="ADHD-Friendly Lessons"
-            description="Interactive, bite-sized lessons designed for ADHD learners."
-            bg="bg-[#EAF2EC]"
-          />
+          {features.whyCarelyCards.map((value, index) => (
+            <FeatureCard
+              key={index}
+              icon={value.icon}
+              title={value.title}
+              description={value.description}
+              bg={featureCard[index]}
+            />
+            ))}
         </div>
-      </div>
+      </div>  
       {/* WHITE CONTAINER END */}
 
       {/* FOOTER ILLUSTRATION — INSIDE WHITE BG */
