@@ -9,55 +9,16 @@ import {
   ChevronRight,
 } from "lucide-react";
 import Assets from "../../assets";
+import Sidebar from "../../components/layout/Sidebar";
 
 export default function Dashboard() {
   return (
     <div className="flex h-screen bg-white font-sans text-[#2A2A2A]">
-      
       {/* SIDEBAR */}
-      <aside className="w-72 bg-[#F6F7F4] px-6 py-6 flex flex-col justify-between shadow-sm">
-        <div>
-          <div className="flex items-center text-xl gap-x-4 font-semibold mb-10">
-            <img className="w-7" src={Assets.icons_home} alt="home" />
-            Carely
-          </div>
-
-          <nav className="space-y-2">
-            <SidebarItem icon={<LayoutGrid size={18} />} label="Overview" />
-            <SidebarItem
-              icon={<LayoutGrid size={18} />}
-              label="Dashboard"
-              active
-            />
-            <SidebarItem icon={<ListTodo size={18} />} label="Routine" />
-            <SidebarItem icon={<ListTodo size={18} />} label="Tasks" />
-            <SidebarItem icon={<Notebook size={18} />} label="Notes" />
-            <SidebarItem icon={<Target size={18} />} label="Focus Tracker" />
-            <SidebarItem icon={<Settings size={18} />} label="Settings" />
-          </nav>
-        </div>
-
-        <div className="space-y-4">
-          <div className="flex items-center gap-3 bg-[#F4F6F2] rounded-xl p-3">
-            <img
-              src="https://i.pravatar.cc/40"
-              className="w-10 h-10 rounded-full"
-            />
-            <div>
-              <p className="text-sm font-medium">Thalia K.</p>
-              <p className="text-xs text-gray-400">345 PTS</p>
-            </div>
-          </div>
-
-          <button className="flex items-center gap-2 text-sm text-gray-500">
-            <LogOut size={16} /> Log Out
-          </button>
-        </div>
-      </aside>
+      <Sidebar />
 
       {/* MAIN CONTENT */}
       <main className="flex-1 p-8 overflow-y-auto">
-        
         {/* TOP BAR */}
         <div className="flex items-center justify-between mb-8">
           <input
@@ -78,94 +39,90 @@ export default function Dashboard() {
         </div>
 
         {/* TOP ROW */}
-<div className="grid grid-cols-[2.2fr_1fr] gap-6 mb-8">
+        <div className="grid grid-cols-[2.2fr_1fr] gap-6 mb-8">
+          {/* GREETING CARD */}
+          <div className="bg-gradient-to-r from-[#F0F5EE] to-[#FAF9F6] rounded-3xl p-2 flex justify-between items-center shadow-sm">
+            <div>
+              <h2 className="text-xl font-semibold mb-4 px-2">
+                Good afternoon, Thalia 👋
+              </h2>
 
-  {/* GREETING CARD */}
-  <div className="bg-gradient-to-r from-[#F0F5EE] to-[#FAF9F6] rounded-3xl p-2 flex justify-between items-center shadow-sm">
-    <div>
-      <h2 className="text-xl font-semibold mb-4 px-2">
-        Good afternoon, Thalia 👋
-      </h2>
+              <div className="bg-[#E4F0E8] rounded-2xl px-5 py-4 w-[360px]">
+                <p className="text-sm text-[#5E6F63] mb-2">
+                  You should take your meds in
+                  <span className="float-right font-medium text-[#4A6B57]">
+                    24 mins
+                  </span>
+                </p>
 
-      <div className="bg-[#E4F0E8] rounded-2xl px-5 py-4 w-[360px]">
-        <p className="text-sm text-[#5E6F63] mb-2">
-          You should take your meds in
-          <span className="float-right font-medium text-[#4A6B57]">
-            24 mins
-          </span>
-        </p>
+                <div className="flex items-center gap-4 bg-[#D6EADB] rounded-xl p-3">
+                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                    💊
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium">Daily meds</p>
+                    <p className="text-xs text-gray-500">2 × 10mg</p>
+                  </div>
 
-        <div className="flex items-center gap-4 bg-[#D6EADB] rounded-xl p-3">
-          <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-            💊
+                  <input
+                    type="checkbox"
+                    className="ml-auto w-5 h-5 accent-[#7FAE94]"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <img
+              src={Assets.images_dashboardHero}
+              className="w-[300px]"
+              alt="dashboard hero"
+            />
           </div>
-          <div>
-            <p className="text-sm font-medium">Daily meds</p>
-            <p className="text-xs text-gray-500">2 × 10mg</p>
-          </div>
 
-          <input
-            type="checkbox"
-            className="ml-auto w-5 h-5 accent-[#7FAE94]"
-          />
+          {/* DAILY QUEST */}
+          <div className="bg-[#FBFBFA] rounded-2xl p-4 shadow-sm w-full">
+            {/* Header */}
+            <div className="flex justify-between items-center mb-3">
+              <h3 className="text-sm font-medium text-[#2A2A2A]">
+                Daily Quest
+              </h3>
+              <span className="text-gray-400 text-lg leading-none">⋮</span>
+            </div>
+
+            {/* Items */}
+            <div className="space-y-6">
+              {/* Item 1 */}
+              <div className="flex items-center gap-3">
+                <div className="w-5 h-5 rounded-md bg-[#9EC7B0] flex items-center justify-center text-white text-xs">
+                  ✓
+                </div>
+                <p className="text-sm flex-1">Morning Routine</p>
+                <span className="text-sm text-gray-400">5/5</span>
+              </div>
+
+              {/* Item 2 */}
+              <div className="flex items-center gap-3">
+                <div className="w-5 h-5 rounded-md bg-[#8EC5F5] flex items-center justify-center text-white text-xs">
+                  ✓
+                </div>
+                <p className="text-sm flex-1">Short Focus Session</p>
+                <span className="text-sm text-gray-400">0/1</span>
+              </div>
+            </div>
+
+            {/* Divider */}
+            <div className="my-3 h-px bg-[#E8E8E8]" />
+
+            {/* Footer */}
+            <div className="flex items-center gap-2 text-sm text-gray-400">
+              <span className="rotate-[-20deg]">🔗</span>
+              <span>Completed</span>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-
-    <img
-      src={Assets.images_dashboardHero}
-      className="w-[300px]"
-      alt="dashboard hero"
-    />
-  </div>
-
-  {/* DAILY QUEST */}
-<div className="bg-[#FBFBFA] rounded-2xl p-4 shadow-sm w-full">
-  {/* Header */}
-  <div className="flex justify-between items-center mb-3">
-    <h3 className="text-sm font-medium text-[#2A2A2A]">
-      Daily Quest
-    </h3>
-    <span className="text-gray-400 text-lg leading-none">⋮</span>
-  </div>
-
-  {/* Items */}
-  <div className="space-y-6">
-    {/* Item 1 */}
-    <div className="flex items-center gap-3">
-      <div className="w-5 h-5 rounded-md bg-[#9EC7B0] flex items-center justify-center text-white text-xs">
-        ✓
-      </div>
-      <p className="text-sm flex-1">Morning Routine</p>
-      <span className="text-sm text-gray-400">5/5</span>
-    </div>
-
-    {/* Item 2 */}
-    <div className="flex items-center gap-3">
-      <div className="w-5 h-5 rounded-md bg-[#8EC5F5] flex items-center justify-center text-white text-xs">
-        ✓
-      </div>
-      <p className="text-sm flex-1">Short Focus Session</p>
-      <span className="text-sm text-gray-400">0/1</span>
-    </div>
-  </div>
-
-  {/* Divider */}
-  <div className="my-3 h-px bg-[#E8E8E8]" />
-
-  {/* Footer */}
-  <div className="flex items-center gap-2 text-sm text-gray-400">
-    <span className="rotate-[-20deg]">🔗</span>
-    <span>Completed</span>
-  </div>
-</div>
-
-</div>
-
 
         {/* GRID */}
         <div className="grid grid-cols-3 gap-6">
-          
           {/* LEFT COLUMN */}
           <div className="col-span-2 space-y-6">
             <Section title="Today’s Routine">
@@ -174,117 +131,109 @@ export default function Dashboard() {
                 meta="12 min · 3 days"
                 icon="🌅"
               />
-              <RoutineCard
-                title="Today’s self check-in"
-                meta=""
-                icon="😊"
-              />
+              <RoutineCard title="Today’s self check-in" meta="" icon="😊" />
             </Section>
 
             <Section title="Continue Routine">
-  <div className="grid grid-cols-3 gap-5">
-    <SmallCard
-      title="Tasks"
-      subtitle="12 tasks total"
-      icon="📘"
-      variant="blue"
-      action="Continue"
-    />
-    <SmallCard
-      title="Notes"
-      subtitle="23 unassigned"
-      icon="✏️"
-      variant="yellow"
-      action="Continue"
-    />
-    <SmallCard
-      title="Focus Tracker"
-      subtitle="07 focus sessions"
-      icon="🌱"
-      variant="green"
-      action="View Report"
-    />
-  </div>
-</Section>
-
+              <div className="grid grid-cols-3 gap-5">
+                <SmallCard
+                  title="Tasks"
+                  subtitle="12 tasks total"
+                  icon="📘"
+                  variant="blue"
+                  action="Continue"
+                />
+                <SmallCard
+                  title="Notes"
+                  subtitle="23 unassigned"
+                  icon="✏️"
+                  variant="yellow"
+                  action="Continue"
+                />
+                <SmallCard
+                  title="Focus Tracker"
+                  subtitle="07 focus sessions"
+                  icon="🌱"
+                  variant="green"
+                  action="View Report"
+                />
+              </div>
+            </Section>
           </div>
 
           {/* RIGHT COLUMN */}
-<div className="space-y-6">
+          <div className="space-y-6">
+            {/* UPCOMING EVENT */}
+            <div className="bg-[#FBFBFA] rounded-3xl p-4 shadow-sm">
+              {/* Header */}
+              <div className="flex justify-between items-center mb-3">
+                <h3 className="text-sm font-medium text-[#2A2A2A]">
+                  Upcoming event
+                </h3>
+                <span className="text-gray-400 text-lg leading-none">⋮</span>
+              </div>
 
-  {/* UPCOMING EVENT */}
-  <div className="bg-[#FBFBFA] rounded-3xl p-4 shadow-sm">
-    {/* Header */}
-    <div className="flex justify-between items-center mb-3">
-      <h3 className="text-sm font-medium text-[#2A2A2A]">
-        Upcoming event
-      </h3>
-      <span className="text-gray-400 text-lg leading-none">⋮</span>
-    </div>
+              {/* Event Card */}
+              <div className="bg-white rounded-2xl px-4 py-3 flex items-center gap-3 border border-[#EFEFEF]">
+                {/* Calendar Icon */}
+                <div className="w-8 h-8 rounded-lg bg-[#FFE9C7] flex items-center justify-center">
+                  📅
+                </div>
 
-    {/* Event Card */}
-    <div className="bg-white rounded-2xl px-4 py-3 flex items-center gap-3 border border-[#EFEFEF]">
-      {/* Calendar Icon */}
-      <div className="w-8 h-8 rounded-lg bg-[#FFE9C7] flex items-center justify-center">
-        📅
-      </div>
+                <div className="flex-1">
+                  <p className="text-sm font-medium text-[#2A2A2A]">
+                    May 2
+                    <span className="text-xs text-gray-400 font-normal">
+                      {" "}
+                      · 2:00 AM
+                    </span>
+                  </p>
+                  <p className="text-sm text-gray-500">Therapy Session</p>
+                </div>
 
-      <div className="flex-1">
-        <p className="text-sm font-medium text-[#2A2A2A]">
-          May 2
-          <span className="text-xs text-gray-400 font-normal">
-            {" "}· 2:00 AM
-          </span>
-        </p>
-        <p className="text-sm text-gray-500">
-          Therapy Session
-        </p>
-      </div>
+                {/* City Icon Placeholder */}
+                <div className="w-10 h-6 bg-[#CDE3D3] rounded-md" />
+              </div>
+            </div>
 
-      {/* City Icon Placeholder */}
-      <div className="w-10 h-6 bg-[#CDE3D3] rounded-md" />
-    </div>
-  </div>
+            {/* REMINDER TIPS */}
+            <div
+              className="rounded-3xl p-5 shadow-sm
+    bg-gradient-to-b from-[#F4F7F2] to-[#E6F0E7] relative overflow-hidden"
+            >
+              {/* Header */}
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-sm font-medium text-[#2A2A2A]">
+                  Reminder Tips
+                </h3>
+                <span className="text-gray-400 text-lg leading-none">⋮</span>
+              </div>
 
-  {/* REMINDER TIPS */}
-  <div className="rounded-3xl p-5 shadow-sm
-    bg-gradient-to-b from-[#F4F7F2] to-[#E6F0E7] relative overflow-hidden">
+              {/* Tips */}
+              <ul className="space-y-3 text-sm text-[#5F6F66]">
+                <li className="flex gap-2">
+                  <span className="text-[#7FAE94]">✔</span>
+                  <span>
+                    Set reminders for your meds to build a consistent habit
+                  </span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-[#7FAE94]">✔</span>
+                  <span>
+                    Break down tasks into manageable steps to reduce overwhelm
+                  </span>
+                </li>
+              </ul>
 
-    {/* Header */}
-    <div className="flex justify-between items-center mb-4">
-      <h3 className="text-sm font-medium text-[#2A2A2A]">
-        Reminder Tips
-      </h3>
-      <span className="text-gray-400 text-lg leading-none">⋮</span>
-    </div>
+              {/* CTA */}
+              <button className="mt-5 w-full bg-[#8FB69E] text-white rounded-full py-2 text-sm font-medium">
+                See all tips
+              </button>
 
-    {/* Tips */}
-    <ul className="space-y-3 text-sm text-[#5F6F66]">
-      <li className="flex gap-2">
-        <span className="text-[#7FAE94]">✔</span>
-        <span>
-          Set reminders for your meds to build a consistent habit
-        </span>
-      </li>
-      <li className="flex gap-2">
-        <span className="text-[#7FAE94]">✔</span>
-        <span>
-          Break down tasks into manageable steps to reduce overwhelm
-        </span>
-      </li>
-    </ul>
-
-    {/* CTA */}
-    <button className="mt-5 w-full bg-[#8FB69E] text-white rounded-full py-2 text-sm font-medium">
-      See all tips
-    </button>
-
-    {/* Decorative Leaves (subtle) */}
-    <div className="absolute bottom-0 right-0 w-28 h-28 opacity-20 bg-[radial-gradient(circle_at_bottom_right,#9EC7B0,transparent_70%)]" />
-  </div>
-
-</div>
-
+              {/* Decorative Leaves (subtle) */}
+              <div className="absolute bottom-0 right-0 w-28 h-28 opacity-20 bg-[radial-gradient(circle_at_bottom_right,#9EC7B0,transparent_70%)]" />
+            </div>
+          </div>
         </div>
       </main>
     </div>
@@ -375,12 +324,8 @@ function SmallCard({
 
       {/* Text */}
       <div>
-        <p className="text-sm font-medium text-[#2A2A2A]">
-          {title}
-        </p>
-        <p className="text-xs text-[#7A7A7A] mt-1">
-          {subtitle}
-        </p>
+        <p className="text-sm font-medium text-[#2A2A2A]">{title}</p>
+        <p className="text-xs text-[#7A7A7A] mt-1">{subtitle}</p>
       </div>
 
       {/* CTA */}
@@ -392,4 +337,3 @@ function SmallCard({
     </div>
   );
 }
-
