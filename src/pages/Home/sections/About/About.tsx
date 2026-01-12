@@ -1,6 +1,6 @@
 import ".././Hero/Hero.css";
 import "../Features/Features";
-import FeatureCard from "../../../../components/layout/FeatureCards";
+import FeatureCard from "../../../../components/cards/FeatureCards";
 import { aboutUs } from "../../../../utils/String";
 
 const valueCardBg = [
@@ -10,11 +10,7 @@ const valueCardBg = [
   "bg-[#F0F7F6]",
 ];
 
-const featureCard = [
-  "bg-[#EEF1F7]",
-  "bg-[#F7EFE3]",
-  "bg-[#EAF2EC]",
-]
+const featureCard = ["bg-[#EEF1F7]", "bg-[#F7EFE3]", "bg-[#EAF2EC]"];
 
 export default function About() {
   return (

@@ -1,8 +1,7 @@
 import ".././Hero/Hero.css";
 import "./Features.css";
-import FeatureCard from "../../../../components/layout/FeatureCards";
+import FeatureCard from "../../../../components/cards/FeatureCards";
 import { features } from "../../../../utils/String";
-
 
 const featureCard = [
   "bg-[#EAF2EC]",
@@ -14,7 +13,7 @@ const featureCard = [
   "bg-[#F7EFE3]",
   "bg-[#EEF1F7]",
   "bg-[#EAF2EC]",
-]
+];
 
 export default function FeaturesPage() {
   return (
@@ -48,9 +47,9 @@ export default function FeaturesPage() {
               description={value.description}
               bg={featureCard[index]}
             />
-            ))}
+          ))}
         </div>
-      </div>  
+      </div>
       {/* WHITE CONTAINER END */}
 
       {/* FOOTER ILLUSTRATION — INSIDE WHITE BG */
