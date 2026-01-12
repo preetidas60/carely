@@ -4,15 +4,22 @@ interface SidebarItemProps {
   to: string;
   icon: React.ReactNode;
   label: string;
+  collapsed?: boolean;
 }
 
-export default function SidebarItem({ to, icon, label }: SidebarItemProps) {
+export default function SidebarItem({
+  to,
+  icon,
+  label,
+  collapsed = false,
+}: SidebarItemProps) {
   return (
     <NavLink
       to={to}
       className={({ isActive }) =>
         `
-        flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer transition-all
+        flex items-center rounded-xl transition-all
+        ${collapsed ? "justify-center p-3" : "gap-3 px-4 py-3"}
         ${
           isActive
             ? "bg-[#E8F1E7] text-green-700"
@@ -20,9 +27,10 @@ export default function SidebarItem({ to, icon, label }: SidebarItemProps) {
         }
         `
       }
+      title={collapsed ? label : undefined} // native tooltip (clean)
     >
       {icon}
-      <span className="text-sm">{label}</span>
+      {!collapsed && <span className="text-sm">{label}</span>}
     </NavLink>
   );
 }
