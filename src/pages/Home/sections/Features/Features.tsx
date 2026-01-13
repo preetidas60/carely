@@ -17,31 +17,31 @@ const featureCard = [
 
 export default function FeaturesPage() {
   return (
-    <main className="hero relative z-10 w-full min-h-screen py-24 flex flex-col items-center gap-y-8">
-      <div
-        className="flex items-center justify-center gap-5 w-[90%] md:w-4/5"
-        style={{ opacity: 1, transform: "none" }}
-      >
+    <main className="hero relative z-10 w-full min-h-screen py-12 md:py-20 flex flex-col items-center gap-y-10">
+      {/* TITLE */}
+      <div className="flex items-center justify-center gap-5 w-[90%] md:w-4/5">
         <hr className="flex-1 border-[#131313]" />
-        <div className="font-octo-bold flex-1 text-center text-3xl sm:text-4xl md:text-5xl ">
+
+        <div className="font-octo-bold flex-1 text-center text-2xl sm:text-3xl md:text-4xl">
           {features.title}
         </div>
+
         <hr className="flex-1 border-[#131313]" />
       </div>
 
-      <section className="max-w-5xl mx-auto text-center px-10 mb-10">
-        <p className="text-xl text-[#6F6F6F] leading-relaxed">
+      {/* SUBTITLE */}
+      <section className="max-w-5xl mx-auto text-center px-6 md:px-10">
+        <p className="text-base md:text-lg text-[#6F6F6F] leading-relaxed">
           {features.subtitle}
         </p>
       </section>
 
-      {/* WHITE CONTAINER START */}
-      <div className="bg-white rounded-3xl overflow-visible">
-        {/* FEATURES GRID */}
-        <div className="p-10  grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+      {/* WHITE CONTAINER */}
+      <section className="w-[90%] max-w-7xl bg-white rounded-3xl">
+        <div className="p-6 md:p-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
           {features.whyCarelyCards.map((value, index) => (
             <FeatureCard
-              key={index}
+              key={value.title}
               icon={value.icon}
               title={value.title}
               description={value.description}
@@ -49,21 +49,7 @@ export default function FeaturesPage() {
             />
           ))}
         </div>
-      </div>
-      {/* WHITE CONTAINER END */}
-
-      {/* FOOTER ILLUSTRATION — INSIDE WHITE BG */
-      /* <img
-          src={Assets.images_featuresFooter}
-          alt="Decorative foliage"
-          className="
-                absolute  
-                left-0
-                bottom-0      
-                pointer-events-none
-                z-10
-              "
-        /> */}
+      </section>
     </main>
   );
 }
