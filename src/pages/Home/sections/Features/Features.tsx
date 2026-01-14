@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { FeatureCard } from "../../../../components/cards/FeatureCards";
+import "./Features.css";
 
 /* =========================================
    Features Section
@@ -8,6 +9,7 @@ import { FeatureCard } from "../../../../components/cards/FeatureCards";
 export default function FeaturesPage() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [inView, setInView] = useState(false);
 
   // Mouse parallax effect
   useEffect(() => {
@@ -40,6 +42,25 @@ export default function FeaturesPage() {
     window.addEventListener("scroll", handleScroll);
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Animate on view
+  useEffect(() => {
+    const section = document.getElementById("features");
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
   }, []);
 
   const features = {
@@ -166,11 +187,12 @@ export default function FeaturesPage() {
       {/* Content */}
       <div className="relative z-10 w-full flex flex-col items-center gap-10 px-4 sm:px-6 sm:py-6">
         <div className="flex flex-col items-center gap-6 w-full max-w-6xl">
-          {/* Title with decorative lines */}
           <div
             className="flex items-center justify-center gap-3 sm:gap-4 w-full"
             style={{
-              animation: "slideInDown 0.8s ease-out 0.2s both",
+              animation: inView
+                ? "slideInDown 0.8s ease-out 0.2s both"
+                : "none",
             }}
           >
             <div className="flex-1 h-[1.5px] sm:h-[2px] bg-gradient-to-r from-transparent via-primary/30 to-primary/50 rounded-full max-w-[100px] sm:max-w-[200px] md:max-w-none" />
@@ -182,11 +204,10 @@ export default function FeaturesPage() {
             <div className="flex-1 h-[1.5px] sm:h-[2px] bg-gradient-to-l from-transparent via-primary/30 to-primary/50 rounded-full max-w-[100px] sm:max-w-[200px] md:max-w-none" />
           </div>
 
-          {/* Subtitle */}
           <p
             className="max-w-3.5xl text-center text-sm sm:text-base md:text-lg text-[#666] leading-relaxed px-4 sm:px-6"
             style={{
-              animation: "slideInUp 0.8s ease-out 0.4s both",
+              animation: inView ? "slideInUp 0.8s ease-out 0.4s both" : "none",
             }}
           >
             {features.subtitle}
@@ -202,23 +223,26 @@ export default function FeaturesPage() {
                   {...feature}
                   bg={featureColors[index % featureColors.length]}
                   index={index}
+                  inView={inView}
                 />
               ))}
             </div>
           </div>
+          <div className="absolute inset-0 bg-primary/5 rounded-[32px] blur-3xl -z-10 scale-105" />
         </section>
-      </div>
 
-      <style>{`
-        @keyframes slideInUp {
-          from { opacity: 0; transform: translateY(30px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes gridPulse {
-          0%,100% { opacity: 0.025; }
-          50% { opacity: 0.04; }
-        }
-      `}</style>
+        {/* Bottom decorative element */}
+        <div
+          className="z-10 flex items-center gap-3 text-sm text-[#888]"
+          style={{
+            animation: inView ? "slideInUp 0.8s ease-out 1s both" : "none",
+          }}
+        >
+          <div className="w-12 h-[1px] bg-gradient-to-r from-transparent to-primary/30" />
+          <span>Designed with ADHD brains in mind</span>
+          <div className="w-12 h-[1px] bg-gradient-to-l from-transparent to-primary/30" />
+        </div>
+      </div>
     </main>
   );
 }

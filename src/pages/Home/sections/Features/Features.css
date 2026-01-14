@@ -1,0 +1,14 @@
+@keyframes slideInUp {
+          from { opacity: 0; transform: translateY(30px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInDown {
+          from { opacity: 0; transform: translateY(-30px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes gridPulse {
+          0%,100% { opacity: 0.025; }
+          50% { opacity: 0.04; }
+        }

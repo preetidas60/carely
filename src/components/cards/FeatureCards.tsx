@@ -10,6 +10,7 @@ export interface FeatureCardProps {
   description: string;
   bg: string;
   index: number;
+  inView?: boolean;
 }
 
 export function FeatureCard({
@@ -18,6 +19,7 @@ export function FeatureCard({
   description,
   bg,
   index,
+  inView = true,
 }: FeatureCardProps) {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -36,7 +38,9 @@ export function FeatureCard({
         relative overflow-hidden group
       `}
       style={{
-        animation: `slideInUp 0.6s ease-out ${index * 0.1}s both`,
+        animation: inView
+          ? `slideInUp 0.6s ease-out ${index * 0.1}s both`
+          : "none",
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
