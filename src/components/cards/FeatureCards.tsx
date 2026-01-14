@@ -1,46 +1,70 @@
-/* -------------------------------- */
-/* Feature Card Component */
-/* -------------------------------- */
+import { useState } from "react";
+
+/* =========================================
+   Feature Card Component
+========================================= */
 
 export interface FeatureCardProps {
   icon: string;
   title: string;
   description: string;
   bg: string;
+  index: number;
 }
 
-export default function FeatureCard({
+export function FeatureCard({
   icon,
   title,
   description,
   bg,
+  index,
 }: FeatureCardProps) {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <div
       className={`
         ${bg}
-        rounded-[28px]
-        px-6
-        py-4
-        flex
-        items-center
-        gap-6
+        rounded-2xl sm:rounded-3xl
+        px-4 sm:px-6 py-4
+        flex flex-col gap-3
         shadow-[0_8px_24px_rgba(0,0,0,0.04)]
-        h-[180px]
+        hover:shadow-[0_16px_48px_rgba(0,0,0,0.08)]
+        border border-white/60
+        transition-all duration-500
+        hover:scale-[1.02] hover:-translate-y-1
+        relative overflow-hidden group
       `}
+      style={{
+        animation: `slideInUp 0.6s ease-out ${index * 0.1}s both`,
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
+      {/* Shimmer */}
+      <div
+        className={`
+          absolute inset-0 bg-gradient-to-r
+          from-transparent via-white/30 to-transparent
+          -translate-x-full transition-transform duration-1000
+          ${isHovered ? "translate-x-full" : ""}
+        `}
+      />
+
       {/* Icon */}
-      <div className="w-20 h-20 flex-shrink-0 rounded-full bg-white flex items-center justify-center shadow-sm">
-        <span className="text-[28px]">{icon}</span>
+      <div className="relative">
+        <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-md group-hover:scale-110 transition-all">
+          <span className="text-3xl">{icon}</span>
+        </div>
+        <div className="absolute inset-0 bg-primary/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
       </div>
 
-      {/* Text (LEFT ALIGNED) */}
-      <div className="flex-1 text-left">
-        <h3 className="text-xl font-medium text-[#2E2E2E] mb-1">{title}</h3>
-
-        <p className="text-[14px] leading-[1.5] text-[#7A7A7A] max-w-[300px]">
-          {description}
-        </p>
+      {/* Text */}
+      <div className="relative z-10">
+        <h3 className="text-lg font-semibold text-[#2E2E2E] group-hover:text-primary transition-colors">
+          {title}
+        </h3>
+        <p className="text-sm text-[#666] leading-relaxed">{description}</p>
       </div>
     </div>
   );

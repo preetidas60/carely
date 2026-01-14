@@ -1,6 +1,6 @@
 import ".././Hero/Hero.css";
 import "../Features/Features";
-import FeatureCard from "../../../../components/cards/FeatureCards";
+import { FeatureCard } from "../../../../components/cards/FeatureCards";
 import { aboutUs } from "../../../../utils/String";
 
 const valueCardBg = [
@@ -62,6 +62,7 @@ export default function About() {
               title={value.title}
               description={value.description}
               bg={featureCard[index]}
+              index={index}
             />
           ))}
         </div>
